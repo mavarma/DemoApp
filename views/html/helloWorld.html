@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+	background: green;
+	font-size: 20px;
+}
+.star {
+	color: red;
+}
+h1 {
+	text-align: center;
+}
+</style>
+
+<script type="text/javascript">
+
+	function formValidate() {
+		
+		var name = document.forms["RegForm"]["name"];
+		var email = document.forms["RegForm"]["email"];
+		var gender = document.forms["RegForm"]["gender"];
+		var course = document.forms["RegForm"]["course"];
+		var password = document.forms["RegForm"]["password"];
+		var address = document.forms["RegForm"]["address"];
+		var language = document.forms["RegForm"]["language"];
+		var comment = document.forms["RegForm"]["comment"];
+
+		if (name.value == "") {
+			window.alert("Please enter your name.");
+			name.focus();
+			return false;
+		}
+
+		if (address.value == "") {
+			window.alert("Please enter your address.");
+			name.focus();
+			return false;
+		}
+
+		if (email.value == "") {
+			window.alert("Please enter a valid e-mail address.");
+			email.focus();
+			return false;
+		}
+
+		if (email.value.indexOf("@", 0) < 0) {
+			window.alert("Please enter a valid e-mail address.");
+			email.focus();
+			return false;
+		}
+
+		if (email.value.indexOf(".", 0) < 0) {
+			window.alert("Please enter a valid e-mail address.");
+			email.focus();
+			return false;
+		}
+
+		if (gender.value == "") {
+			window.alert("Please select your gender.");
+			gender.focus();
+			return false;
+		}
+
+		if (language.value == "") {
+			window.alert("Please select your language.");
+			language.focus();
+			return false;
+		}
+
+		if (password.value == "") {
+			window.alert("Please enter your password");
+			password.focus();
+			return flase;
+		}
+
+		if (comment.value == "") {
+			window.alert("Please enter your comment");
+			comment.focus();
+			return flase;
+		}
+
+		if (course.selectedIndex < 1) {
+			alert("Please enter your course.");
+			course.focus();
+			return false;
+		}
+
+		return true;
+	}
+</script>
+
+</head>
+
+<body>
+	<h1>Registration Form</h1>
+	<form name="RegForm" action="/myForm.php" onsubmit="return formValidate()" method="post">
+
+		Name:<span class="star">*</span> <input type="text" name="name">
+		<br /> Address:<span class="star">*</span>
+		<textarea cols="20" rows="10" name="address"> </textarea>
+		<br /> E-mail:<span class="star">*</span> <input type="email"
+			name="email"> <br /> Password:<span class="star">*</span> <input
+			type="password" name="password"><br />
+
+		<fieldset>
+			<legend>
+				Gender:<span class="star">*</span>
+			</legend>
+			<input type="radio" name="gender"> Male <br>
+			<input type="radio" name="gender">Female
+
+		</fieldset>
+		<fieldset>
+			<legend>
+				Language:<span class="star">*</span>
+			</legend>
+			<input type="checkbox" name="language"> English <br>
+			<input type="checkbox" name="languages">Telugu<br> <input
+				type="checkbox" name="languages">Hindi
+
+		</fieldset>
+		Select Course:<span class="star">*</span> <select value=""
+			name="course">
+			<option>Select</option>
+			<option>B.Tech</option>
+			<option>BE</option>
+			<option>B.Sc</option>
+			<option>B.Com</option>
+
+		</select><br>
+		<br> Comments:<span class="star">*</span>
+		<textarea cols="20" rows="10" name="comment"> </textarea>
+		<br> <input type="submit" value="send" name="Submit"> <input
+			type="reset" value="Reset" name="Reset">
+
+	</form>
+</body>
+</html>
